@@ -23,20 +23,20 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    firstName: {
-      type: DataTypes.STRING,
+    role: {
+      type: DataTypes.ENUM,
       allowNull: false,
+      defaultValue: "student",
+      values: ["teacher", "student", "admin"],
     },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    fatherName: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    graduateStatus: {
+      type: DataTypes.ENUM,
+      values: ["inProgress", "graduated", "suspended"],
     },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
 
 module.exports = User;
